@@ -19,16 +19,6 @@ app.set('views', path.join(__dirname, '../views'));
 app.use(express.static(path.join(__dirname, '../public')));
 
 
-const requireLogin = (req, res, next) => {
-    const authCookie = req.cookies.auth;
-    if (authCookie) {
-        // User is logged in
-        next();
-    } else {
-        // User is not logged in, redirect to login page or show an error message
-        res.redirect("/login"); // Redirect to the login page
-    }
-};
 app.get('/dynamic', (req, res) => {
     res.render('index', { title: 'Dynamic Page' });
 });
