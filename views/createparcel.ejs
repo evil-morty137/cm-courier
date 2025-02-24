@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Easyship Freight | Best International Courier</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playwrite+HR+Lijeva:wght@100..400&family=Signika+Negative:wght@300..700&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
+    rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <script>
+    function checkPassphrase() {
+      var passphrase = prompt("Please enter the passphrase:");
+      if (passphrase !== "phrase") {
+        alert("Incorrect passphrase. Contact Admin.");
+        window.stop();
+        return false; // Prevent page from loading
+      } else {
+        return true; // Allow page to load
+      }
+    }
+
+    window.onload = function () {
+      // Call checkPassphrase function when the page is loaded
+      if (!checkPassphrase()) {
+        document.body.innerHTML = ""; // Clear the page content if the passphrase is incorrect
+      }
+    };
+  </script>
+</head>
+<style>
+  h1,
+  p,
+  a,
+  label {
+    font-family: "Signika Negative", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 200;
+    font-style: normal;
+    font-size: 12px;
+    color: gray;
+  }
+</style>
+
+<body class="bg-gray-100">
+
+  <!-- Navigation Bar -->
+  <%- include('partials/nav') %>
+
+    <!-- Main Content -->
+    <div class="container mx-auto mt-24 p-8">
+      <h1 class="text-xl font-bold text-black text-center mb-12">Create A Parcel</h1>
+
+      <!-- Signup Form -->
+      <form class="bg-white shadow-lg rounded-lg p-8" method="post" action="/submit-parcel">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <!-- First Column -->
+          <div>
+            <div class="mb-4">
+              <label for="itemName" class="block font-bold mb-2">Item Name</label>
+              <input type="text" id="itemName" name="itemName" class="w-full border-gray-300 border p-2 rounded-lg" />
+            </div>
+            <div class="mb-4">
+              <label for="from" class="block font-bold mb-2">From</label>
+              <input type="text" id="from" name="from" class="w-full border-gray-300 border p-2 rounded-lg" />
+            </div>
+            <div class="mb-4">
+              <label for="to" class="block font-bold mb-2">To</label>
+              <input type="text" id="to" name="to" class="w-full border-gray-300 border p-2 rounded-lg" />
+            </div>
+          </div>
+
+          <!-- Second Column -->
+          <div>
+            <div class="mb-4">
+              <label for="sender" class="block font-bold mb-2">Sender</label>
+              <input type="text" id="sender" name="sender" class="w-full border-gray-300 border p-2 rounded-lg" />
+            </div>
+            <div class="mb-4">
+              <label for="receiver" class="block font-bold mb-2">Reciever</label>
+              <input type="text" id="receiver" name="receiver" class="w-full border-gray-300 border p-2 rounded-lg" />
+            </div>
+            <div class="mb-4">
+              <label for="currentLocation" class="block font-bold mb-2">Current Location</label>
+              <input type="text" id="currentLocation" name="currentLocation"
+                class="w-full border-gray-300 border p-2 rounded-lg" />
+            </div>
+          </div>
+
+          <!-- Third Column -->
+          <div>
+            <div class="mb-4">
+              <label for="date" class="block font-bold mb-2">Date</label>
+              <input type="date" id="date" name="date" class="w-full border-gray-300 border p-2 rounded-lg" />
+            </div>
+            <div class="mb-4">
+              <label for="status" class="block font-bold mb-2">Status
+              </label>
+              <select id="status" name="status" class="w-full border-gray-300 border p-2 rounded-lg">
+                <option value="Pending">Pending</option>
+                <option value="Pending">Order Received</option>
+                <option value="Pending">Processing</option>
+                <option value="In Transit">In Transit</option>
+                <option value="Delivered">Delivered</option>
+              </select>
+            </div>
+            <div class="mb-4">
+              <label for="currentCondition" class="block font-bold mb-2">Current Condition</label>
+              <input type="text" id="currentCondition" name="currentCondition"
+                class="w-full border-gray-300 border p-2 rounded-lg" />
+            </div>
+          </div>
+        </div>
+
+        <!-- Submit Button -->
+        <div class="mt-8">
+          <button type="submit" style="background-color: #4570B4;"
+            class="w-full text-white px-6 py-2 rounded-md transition-colors duration-300">
+            Create
+          </button>
+        </div>
+      </form>
+    </div>
+    <p class="text-center text-black text-lg ">Go back to <a href="/admin" class="text-lg" style="color: #57B6AD;">All
+        Parcels</a></p>
+    <!-- Footer -->
+    <!-- Footer Section -->
+    <%- include('partials/footer') %>
+
+
+</body>
+
+</html>

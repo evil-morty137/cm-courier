@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fastest & Safest Courier</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playwrite+HR+Lijeva:wght@100..400&family=Signika+Negative:wght@300..700&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
+        rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<style>
+    h1,
+    p,
+    label {
+        font-family: "Signika Negative", sans-serif;
+        font-optical-sizing: auto;
+        font-weight: 200;
+        font-style: normal;
+        font-size: 12px;
+        color: gray;
+    }
+
+    .faq-answer {
+        max-height: 0;
+        opacity: 0;
+        transition: max-height 0.3s ease, opacity 0.3s ease;
+        overflow: hidden;
+    }
+
+    .faq-answer.open {
+        max-height: 1000px;
+        /* Adjust based on content size */
+        opacity: 1;
+    }
+</style>
+
+<body class="bg-gray-100">
+
+    <!-- Navigation Bar -->
+    <%- include('partials/nav') %>
+
+        <!-- Main Content -->
+        <!-- FAQ Section -->
+        <section class="container mx-auto mt-16 px-4">
+            <h2 class="text-3xl font-bold text-center mb-8">Frequently Asked Questions</h2>
+
+            <!-- FAQ Card -->
+            <div class="bg-white p-8 rounded-lg">
+                <div class="flex flex-col md:flex-row gap-8">
+                    <!-- Left Column -->
+                    <div class="w-full md:w-1/2 shadow-xl p-4">
+                        <div class="faq-item border-b-2 border-gray-200 pb-4 mb-4">
+                            <div class="flex justify-between items-center cursor-pointer">
+                                <h3 class="text-xl font-semibold">What are the delivery charges?</h3>
+                                <!-- Down Arrow Icon -->
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke="currentColor"
+                                    class="w-6 h-6 text-gray-700 transition-transform duration-300">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M19 9l-7 7-7-7" />
+                                </svg>
+                            </div>
+                            <div class="faq-answer mt-2 text-gray-700">
+                                Delivery charges vary depending on the size, weight, and destination of the package. You
+                                can calculate
+                                the exact cost using our online calculator or at any of our service centers.
+                            </div>
+                        </div>
+                        <div class="faq-item border-b-2 border-gray-200 pb-4 mb-4">
+                            <div class="flex justify-between items-center cursor-pointer">
+                                <h3 class="text-xl font-semibold">How long does delivery take?</h3>
+                                <!-- Down Arrow Icon -->
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke="currentColor"
+                                    class="w-6 h-6 text-gray-700 transition-transform duration-300">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M19 9l-7 7-7-7" />
+                                </svg>
+                            </div>
+                            <div class="faq-answer mt-2 text-gray-700">
+                                Delivery times vary based on the service you select. Our standard delivery typically
+                                takes 3-5 business
+                                days, while express options can deliver within 24-48 hours.
+                            </div>
+                        </div>
+
+                        <div class="faq-item border-b-2 border-gray-200 pb-4 mb-4">
+                            <div class="flex justify-between items-center cursor-pointer">
+                                <h3 class="text-xl font-semibold">How can I track my parcel?</h3>
+                                <!-- Down Arrow Icon -->
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke="currentColor"
+                                    class="w-6 h-6 text-gray-700 transition-transform duration-300">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M19 9l-7 7-7-7" />
+                                </svg>
+                            </div>
+                            <div class="faq-answer mt-2 text-gray-700">
+                                You can track your parcel online using the tracking number provided upon shipment.
+                                Simply enter the
+                                tracking number on our website or app to see the current status and location of your
+                                package.
+                            </div>
+                        </div>
+
+                        <div class="faq-item border-b-2 border-gray-200 pb-4 mb-4">
+                            <div class="flex justify-between items-center cursor-pointer">
+                                <h3 class="text-xl font-semibold">What should I do if my parcel is delayed?</h3>
+                                <!-- Down Arrow Icon -->
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke="currentColor"
+                                    class="w-6 h-6 text-gray-700 transition-transform duration-300">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M19 9l-7 7-7-7" />
+                                </svg>
+                            </div>
+                            <div class="faq-answer mt-2 text-gray-700">
+                                If your parcel is delayed, please contact our customer service team with your tracking
+                                number. We will
+                                investigate the cause of the delay and provide you with an update as soon as possible.
+                            </div>
+                        </div>
+
+                        <div class="faq-item border-b-2 border-gray-200 pb-4 mb-4">
+                            <div class="flex justify-between items-center cursor-pointer">
+                                <h3 class="text-xl font-semibold">Can I change the delivery address after shipping?</h3>
+                                <!-- Down Arrow Icon -->
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke="currentColor"
+                                    class="w-6 h-6 text-gray-700 transition-transform duration-300">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M19 9l-7 7-7-7" />
+                                </svg>
+                            </div>
+                            <div class="faq-answer mt-2 text-gray-700">
+                                Yes, you can change the delivery address after shipping, but additional charges may
+                                apply. Please
+                                contact our support team as soon as possible to make the changes.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Column -->
+                    <div class="w-full md:w-1/2 shadow-xl p-4">
+                        <div class="faq-item border-b-2 border-gray-200 pb-4 mb-4">
+                            <div class="flex justify-between items-center cursor-pointer">
+                                <h3 class="text-xl font-semibold">What items are prohibited from shipping?</h3>
+                                <!-- Down Arrow Icon -->
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke="currentColor"
+                                    class="w-6 h-6 text-gray-700 transition-transform duration-300">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M19 9l-7 7-7-7" />
+                                </svg>
+                            </div>
+                            <div class="faq-answer mt-2 text-gray-700">
+                                Items such as explosives, flammable materials, and perishable goods are prohibited from
+                                shipping. For a
+                                complete list of restricted items, please refer to our shipping guidelines.
+                            </div>
+                        </div>
+                        <div class="faq-item border-b-2 border-gray-200 pb-4 mb-4">
+                            <div class="flex justify-between items-center cursor-pointer">
+                                <h3 class="text-xl font-semibold">Do you offer insurance for packages?</h3>
+                                <!-- Down Arrow Icon -->
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke="currentColor"
+                                    class="w-6 h-6 text-gray-700 transition-transform duration-300">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M19 9l-7 7-7-7" />
+                                </svg>
+                            </div>
+                            <div class="faq-answer mt-2 text-gray-700">
+                                Yes, we offer insurance for packages to cover loss or damage during transit. You can
+                                choose to add
+                                insurance when booking your shipment.
+                            </div>
+                        </div>
+                        <div class="faq-item border-b-2 border-gray-200 pb-4 mb-4">
+                            <div class="flex justify-between items-center cursor-pointer">
+                                <h3 class="text-xl font-semibold">How do I prepare my package for shipping?</h3>
+                                <!-- Down Arrow Icon -->
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke="currentColor"
+                                    class="w-6 h-6 text-gray-700 transition-transform duration-300">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M19 9l-7 7-7-7" />
+                                </svg>
+                            </div>
+                            <div class="faq-answer mt-2 text-gray-700">
+                                Ensure your items are securely packed in a sturdy box, with cushioning material to
+                                protect them during
+                                transit. Clearly label the package with the recipient’s address and your return address.
+                            </div>
+                        </div>
+                        <div class="faq-item border-b-2 border-gray-200 pb-4 mb-4">
+                            <div class="flex justify-between items-center cursor-pointer">
+                                <h3 class="text-xl font-semibold">What happens if my package is lost?</h3>
+                                <!-- Down Arrow Icon -->
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke="currentColor"
+                                    class="w-6 h-6 text-gray-700 transition-transform duration-300">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M19 9l-7 7-7-7" />
+                                </svg>
+                            </div>
+                            <div class="faq-answer mt-2 text-gray-700">
+                                In the unfortunate event that your package is lost, please contact our customer service
+                                immediately with
+                                your tracking number. If you opted for insurance, you may be eligible for compensation.
+                            </div>
+                        </div>
+
+                        <div class="faq-item border-b-2 border-gray-200 pb-4 mb-4">
+                            <div class="flex justify-between items-center cursor-pointer">
+                                <h3 class="text-xl font-semibold">How do I file a claim for a damaged package?</h3>
+                                <!-- Down Arrow Icon -->
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke="currentColor"
+                                    class="w-6 h-6 text-gray-700 transition-transform duration-300">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M19 9l-7 7-7-7" />
+                                </svg>
+                            </div>
+                            <div class="faq-answer mt-2 text-gray-700">
+                                To file a claim for a damaged package, please contact our customer service team with
+                                your tracking
+                                number and photos of the damaged package. We will guide you through the claims process.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </section>
+        <!-- Footer Section -->
+        <%- include('partials/footer') %>
+
+
+</body>
+<script>
+    document.querySelectorAll('.faq-item').forEach((item) => {
+        const question = item.querySelector('div');
+        const answer = item.querySelector('.faq-answer');
+        const arrow = item.querySelector('svg');
+
+        question.addEventListener('click', () => {
+            const isOpen = answer.classList.contains('open');
+
+            // Close all answers
+            document.querySelectorAll('.faq-answer').forEach((ans) => {
+                ans.classList.remove('open');
+                ans.previousElementSibling.querySelector('svg').classList.remove('rotate-180');
+            });
+
+            // If it was not already open, open this one
+            if (!isOpen) {
+                answer.classList.add('open');
+                arrow.classList.add('rotate-180');
+            }
+        });
+    });
+
+</script>
+
+</html>

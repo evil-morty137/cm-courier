@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Easyship Freight</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playwrite+HR+Lijeva:wght@100..400&family=Signika+Negative:wght@300..700&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
+        rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<style>
+    h1,
+    p,
+    a {
+        font-family: "Signika Negative", sans-serif;
+        font-optical-sizing: auto;
+        font-weight: 200;
+        font-style: normal;
+        font-size: 16px;
+        color: black;
+    }
+</style>
+
+<body class="bg-gray-100">
+
+    <!-- Navigation Bar -->
+    <%- include('partials/nav') %>
+
+        <!-- Main Content -->
+        <section class="container mx-auto mt-16 px-4">
+            <h1 class="text-3xl font-bold text-center mb-8">About Us</h1>
+            <div class="p-8">
+                <div class="">
+                    <div class="w-full bg-white shadow-2xl p-4">
+                        <p>
+                            Welcome to our courier service platform, where efficiency meets reliability in delivering
+                            your parcels across the
+                            globe. Our platform is designed to cater to the unique needs of our customers, whether
+                            you’re a business looking
+                            to streamline logistics or an individual sending a special package to a loved one.
+                        </p><br />
+
+                        <p>
+                            Same-Day Delivery:
+                            Experience the convenience of same-day delivery with our expedited service. Whether you have
+                            urgent documents,
+                            last-minute gifts, or time-sensitive packages, our same-day delivery ensures your items
+                            reach their destination
+                            swiftly and securely. We prioritize your deliveries, providing real-time tracking and
+                            updates to keep you informed
+                            every step of the way.
+                        </p><br />
+
+                        <p>
+                            International Shipping:
+                            Expand your reach with our comprehensive international shipping services. Whether you're
+                            shipping products to
+                            customers overseas or sending a package to family abroad, we handle everything from customs
+                            documentation to
+                            door-to-door delivery. With our global network and reliable carriers, you can trust that
+                            your international
+                            shipments will arrive safely and on time.
+                        </p><br />
+
+                        <p>
+                            Package Tracking:
+                            Stay informed about your package’s journey with our advanced tracking system. From the
+                            moment your parcel is
+                            picked up until it reaches its destination, you can monitor its status in real-time. Our
+                            platform provides detailed
+                            tracking information, giving you peace of mind and ensuring you’re always in the loop.
+                        </p><br />
+
+                        <p>
+                            Bulk Shipping:
+                            Simplify your logistics with our bulk shipping solutions. Whether you’re a business with
+                            large-volume shipments or
+                            an individual sending multiple packages, our platform offers competitive rates and efficient
+                            processing for bulk
+                            orders. We handle the logistics so you can focus on what matters most – your business or
+                            personal commitments.
+                        </p><br />
+
+                        <p>
+                            Custom Delivery Options:
+                            Tailor your delivery experience with our customizable shipping options. From choosing the
+                            delivery time to adding
+                            extra insurance for valuable items, our platform allows you to personalize your shipping
+                            experience according to
+                            your specific needs. We’re here to make sure your parcels are delivered just the way you
+                            want.
+                        </p><br />
+
+                        <p>
+                            At our courier service platform, we are dedicated to providing exceptional service and
+                            ensuring your parcels are
+                            delivered with care and efficiency. With a commitment to innovation, reliability, and
+                            customer satisfaction, we
+                            aim to be your trusted partner in all your shipping needs. Whether you’re shipping locally
+                            or globally, we invite
+                            you to experience the ease and reliability of our courier services.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+        <!-- Footer Section -->
+        <%- include('partials/footer') %>
+
+
+</body>
+<script>
+    document.querySelectorAll('.faq-item').forEach((item) => {
+        const question = item.querySelector('div');
+        const answer = item.querySelector('.faq-answer');
+        const arrow = item.querySelector('svg');
+
+        question.addEventListener('click', () => {
+            const isOpen = answer.classList.contains('open');
+
+            // Close all answers
+            document.querySelectorAll('.faq-answer').forEach((ans) => {
+                ans.classList.remove('open');
+                ans.previousElementSibling.querySelector('svg').classList.remove('rotate-180');
+            });
+
+            // If it was not already open, open this one
+            if (!isOpen) {
+                answer.classList.add('open');
+                arrow.classList.add('rotate-180');
+            }
+        });
+    });
+
+</script>
+
+</html>

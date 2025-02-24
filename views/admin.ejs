@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parcel Details</title>
+    <!-- Include Tailwind CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<script>
+    function checkPassphrase() {
+        var passphrase = prompt("Please enter the passphrase:");
+        if (passphrase !== "phrase") {
+            alert("Incorrect passphrase. Contact Admin.");
+            window.stop();
+            return false; // Prevent page from loading
+        } else {
+            return true; // Allow page to load
+        }
+    }
+
+    window.onload = function () {
+        // Call checkPassphrase function when the page is loaded
+        if (!checkPassphrase()) {
+            document.body.innerHTML = ""; // Clear the page content if the passphrase is incorrect
+        }
+    };
+</script>
+
+<body class="bg-gray-100">
+
+    <!-- Page Container -->
+    <div class="container mx-auto p-4">
+
+        <!-- Page Header -->
+        <h1 class="text-2xl font-bold text-center mb-6 text-green-700">Parcel Details / <a href="/createp"
+                class="text-blue-500">Create
+                new</a></h1>
+
+        <!-- Mobile View (Card Format) -->
+        <div class="grid grid-cols-1 gap-4 md:hidden">
+            <% parcels.forEach(parcel=> { %>
+                <div class="bg-white p-4 rounded-lg shadow-lg">
+                    <h2 class="text-lg font-bold text-gray-800">
+                        <%= parcel.id %>
+                    </h2>
+                    <h2 class="text-lg font-bold text-gray-800">
+                        <%= parcel.itemName %>
+                    </h2>
+                    <p class="text-gray-600">From: <span class="font-semibold">
+                            <%= parcel.from %>
+                        </span></p>
+                    <p class="text-gray-600">To: <span class="font-semibold">
+                            <%= parcel.to %>
+                        </span></p>
+                    <p class="text-gray-600">Receiver: <span class="font-semibold">
+                            <%= parcel.receiver %>
+                        </span></p>
+                    <p class="text-gray-600">Current Location: <span class="font-semibold">
+                            <%= parcel.currentLocation %>
+                        </span></p>
+                    <p class="text-gray-600">Current Condition: <span class="font-semibold">
+                            <%= parcel.currentCondition %>
+                        </span></p>
+                    <p class="text-gray-600">Status: <span class="font-semibold">
+                            <%= parcel.status %>
+                        </span></p>
+                    <p class="text-gray-600">Sender: <span class="font-semibold">
+                            <%= parcel.sender %>
+                        </span></p>
+                    <p class="text-gray-600">Date: <%= parcel.date %>
+                    </p>
+                    <a href="/parcels/<%= parcel.id %>/edit"
+                        class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 mt-2 rounded">
+                        Edit
+                    </a>
+                    <form action="/parcels/<%= parcel._id %>/delete" method="post"
+                        onsubmit="return confirm('Are you sure you want to delete this parcel?');">
+                        <button type="submit"
+                            class="bg-red-500 text-white font-bold py-2 px-2 rounded mt-2 hover:text-red-700">Delete</button>
+                    </form>
+                </div>
+                <% }); %>
+        </div>
+
+        <!-- Desktop View (Table Format) -->
+        <div class="hidden md:block bg-white shadow-lg rounded-lg overflow-hidden">
+            <!-- Wrapper for horizontal scrolling -->
+            <div class="overflow-x-auto">
+                <table class="min-w-full table-auto">
+                    <thead>
+                        <tr class="bg-gray-200 text-gray-600 uppercase text-sm leading-normal">
+                            <th class="py-3 px-6 text-left">Tracking No.</th>
+                            <th class="py-3 px-6 text-left">Name</th>
+                            <th class="py-3 px-6 text-left">From</th>
+                            <th class="py-3 px-6 text-left">To</th>
+                            <th class="py-3 px-6 text-left">Receiver</th>
+                            <th class="py-3 px-6 text-left">Current Location</th>
+                            <th class="py-3 px-6 text-left">Condition</th>
+                            <th class="py-3 px-6 text-left">Status</th>
+                            <th class="py-3 px-6 text-left">Sender</th>
+                            <th class="py-3 px-6 text-left">Date</th>
+                            <th class="py-3 px-6 text-left">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-gray-600 text-sm font-light">
+                        <% parcels.forEach(parcel=> { %>
+                            <tr class="border-b border-gray-200 hover:bg-gray-100">
+                                <td class="py-3 px-6 text-left">
+                                    <%= parcel.id %>
+                                </td>
+                                <td class="py-3 px-6 text-left">
+                                    <%= parcel.itemName %>
+                                </td>
+                                <td class="py-3 px-6 text-left">
+                                    <%= parcel.from %>
+                                </td>
+                                <td class="py-3 px-6 text-left">
+                                    <%= parcel.to %>
+                                </td>
+                                <td class="py-3 px-6 text-left">
+                                    <%= parcel.receiver %>
+                                </td>
+                                <td class="py-3 px-6 text-left">
+                                    <%= parcel.currentLocation %>
+                                </td>
+                                <td class="py-3 px-6 text-left">
+                                    <%= parcel.status %>
+                                </td>
+                                <td class="py-3 px-6 text-left">
+                                    <%= parcel.currentCondition %>
+                                </td>
+                                <td class="py-3 px-6 text-left">
+                                    <%= parcel.sender %>
+                                </td>
+                                <td class="py-3 px-6 text-left">
+                                    <%= parcel.date %>
+                                </td>
+                                <td class="flex space-x-2 py-3 px-6 text-left">
+                                    <a href="/parcels/<%= parcel.id %>/edit" class="text-gray-600">
+                                        Edit
+                                    </a>
+                                    <form action="/parcels/<%= parcel._id %>/delete" method="post"
+                                        onsubmit="return confirm('Are you sure you want to delete this parcel?');">
+                                        <button type="submit" class="text-red-600 hover:text-red-700">Delete</button>
+                                    </form>
+                                </td>
+                            </tr>
+                            <% }); %>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+
+    </div>
+
+</body>
+
+</html>

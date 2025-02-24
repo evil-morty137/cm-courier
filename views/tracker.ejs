@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Parcel Tracker</title>
+
+  <!-- Google Web Fonts -->
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+
+  <!-- Libraries Stylesheet -->
+  <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+  <!-- Customized Bootstrap Stylesheet -->
+  <link href="css/style.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body class="bg-gray-100 min-h-screen">
+  <div class="w-full max-w-2xl mx-auto mt-10 p-8 bg-white rounded-lg shadow-lg">
+    <h2 class="text-3xl font-bold text-center mb-6 text-red-600">Parcel Tracking</h2>
+    <p class="text-center text-gray-600 mb-4">Tracking ID: <%= parcel._id %></p>
+
+    <div class="relative pt-4">
+      <div class="flex items-center justify-between mb-2">
+        <div class="flex items-center">
+          <i class="fas fa-receipt text-gray-500"></i>
+          <span class="text-xs text-gray-700 ml-1">Order Received</span>
+        </div>
+        <div class="flex items-center">
+          <i class="fas fa-cogs text-yellow-700"></i>
+          <span class="text-xs text-yellow-700 ml-1">Processing</span>
+        </div>
+        <div class="flex items-center">
+          <i class="fas fa-truck text-blue-500"></i>
+          <span class="text-xs text-blue-700 ml-1">In Transit</span>
+        </div>
+        <div class="flex items-center">
+          <i class="fas fa-box-open text-green-500"></i>
+          <span class="text-xs text-green-700 ml-1">Delivered</span>
+        </div>
+      </div>
+
+      <div class="relative h-6 mb-4 bg-gray-200 rounded">
+        <div class="<%= progressColor %> h-full rounded" style="width: <%= progressWidth %>%;">
+          <span class="hidden"><%= parcel.status %></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-6">
+      <p class="text-sm text-gray-600"><strong>Status:</strong> <%= parcel.status %></p>
+      <p class="text-sm text-gray-600"><strong>Last Updated:</strong> <%= new Date(parcel.date).toLocaleDateString() %></p>
+    </div>
+
+    <div class="mt-6 p-4 bg-gray-50 border rounded-md">
+      <h3 class="text-lg font-semibold">Parcel Details</h3>
+      <div class="mt-2">
+        <p class="text-sm text-gray-600"><strong>Sender:</strong> <%= parcel.sender %></p>
+        <p class="text-sm text-gray-600"><strong>Receiver:</strong> <%= parcel.receiver %></p>
+        <p class="text-sm text-gray-600"><strong>Current Location:</strong> <%= parcel.currentLocation %></p>
+        <p class="text-sm text-gray-600"><strong>Condition:</strong> <%= parcel.currentCondition %></p>
+      </div>
+    </div>
+
+    <!-- Go Back Home Button -->
+    <div class="mt-6 text-center">
+      <a href="/" class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 transition duration-300">
+        <i class="fas fa-home mr-2"></i>Go Back Home
+      </a>
+    </div>
+
+    <!-- Track Another Parcel Form -->
+    <div class="mt-6">
+      <h3 class="text-lg font-semibold text-center mb-4">Track Another Parcel</h3>
+      <form action="/tracker" method="post" class="flex flex-col items-center">
+        <input
+          type="text"
+          name="parcelId"
+          placeholder="Enter Tracking ID"
+          class="form-control w-full max-w-xs px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+          required
+        />
+        <button
+          type="submit"
+          class="mt-4 bg-green-500 text-white px-4 py-2 rounded-md hover:bg-green-600 transition duration-300"
+        >
+          <i class="fas fa-search mr-2"></i>Track Parcel
+        </button>
+      </form>
+
+      <!-- <form action="/tracker" method="post">
+        <div class="input-group">
+            <input type="text" class="form-control border-light" name="parcelId" style="padding: 5px;"
+                placeholder="Tracking Id">
+            <div class="input-group-append">
+                <button class="btn btn-primary px-3">Track & Trace</button>
+            </div>
+        </div>
+    </form> -->
+    </div>
+  </div>
+</body>
+
+</html>
